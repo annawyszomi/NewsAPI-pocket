@@ -1,0 +1,46 @@
+.no-repeat {
+    background-repeat: no-repeat !important;
+}
+
+.cover {
+    background-size: cover !important;
+}
+
+.background__start {
+    background: #000000;
+}
+
+
+.text-muted {
+    color: #ffffff !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+}
+
+ul {
+    color: #fff !important;
+}
+
+li {
+    color: #fff !important;
+}
+
+table {
+    background-color: #00000069 !important;
+    width: auto !important;
+    color: #fff !important;
+    margin-left: 2%;
+    margin-top: 2%;
+
+}
+
+form {
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+section {
+    margin: 2%;
+}

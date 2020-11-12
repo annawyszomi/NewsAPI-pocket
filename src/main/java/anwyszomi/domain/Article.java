@@ -19,10 +19,10 @@ public class Article {
     private String url;
     private String urlToImage;
     private String publishedAt;
-    @ManyToOne
-    private User user;
-    @ManyToOne
-    private Pocket pocket;
+//    @ManyToOne
+//    private User user;
+//    @ManyToOne
+//    private Pocket pocket;
 
     public Long getId() {
         return id;
@@ -80,21 +80,7 @@ public class Article {
         this.urlToImage = urlToImage;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Pocket getPocket() {
-        return pocket;
-    }
-
-    public void setPocket(Pocket pocket) {
-        this.pocket = pocket;
-    }
 
     public String getPublishedAt() {
         return publishedAt;

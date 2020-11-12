@@ -27,13 +27,6 @@ public class AllArticlesServiceImpl implements AllArticlesService {
 
     public List <Article> articleByTitle(String title) {
         List <Article> articlesByTitle = new ArrayList <>();
-//
-//        for (Article article : responder.responseOfAllArticleInBBCNews().getArticles()) {
-//            if (article.getTitle().contains( title )) {
-//                articlesByTitle.add( article );
-//            }
-//        }
-//        return articlesByTitle;
         return responder.responseOfAllArticleInBBCNews().getArticles()
                 .stream()
                 .filter( f -> f.getTitle().contains( title ) ).collect( Collectors.toList() );

@@ -19,6 +19,11 @@ public class PocketServiceImpl implements PocketService {
 
     }
 
+//    @Override
+//    public void add(List<Article> articles) {
+//        repository.save(repository.findAll());
+//    }
+
     @Override
     public List <Article> findAll() {
         return repository.findAll();

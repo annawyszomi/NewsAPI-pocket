@@ -17,16 +17,25 @@ public class User {
     @Length(min = 1, message = "Login cannot be empty")
     @Column(unique = true)
     private String login;
+    @Column
+    private String password;
+    @Column
+    private String email;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set <Article> articles = new HashSet <>();
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private Set <Article> articles = new HashSet <>();
 
-    @OneToOne
-    private Pocket pocket;
 
-    public User(String login, Set <Article> articles) {
+//    @OneToOne
+//    private Pocket pocket;
+
+
+    public User(Long id, String login, String password, String email) {
+        this.id = id;
         this.login = login;
-        this.articles = articles;
+        this.password = password;
+        this.email = email;
+
     }
 
     public Long getId() {
@@ -46,13 +55,20 @@ public class User {
     }
 
 
-    public Set <Article> getArticles() {
-        return articles;
+
+    public String getPassword() {
+        return password;
     }
 
-    public void setArticles(Set <Article> articles) {
-        this.articles = articles;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
