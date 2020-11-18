@@ -23,14 +23,17 @@ public class AllArticlesServiceImpl implements AllArticlesService {
 
     public List <Article> articleList() {
         return responder.responseOfAllArticleInBBCNews().getArticles();
+//        return responder.responseOfAllArticleInBBCNews().get
+
     }
 
     public List <Article> articleByTitle(String title) {
         List <Article> articlesByTitle = new ArrayList <>();
-        return responder.responseOfAllArticleInBBCNews().getArticles()
-                .stream()
-                .filter( f -> f.getTitle().contains( title ) ).collect( Collectors.toList() );
+//        return responder.responseOfAllArticleInBBCNews().getArticles()
+//                .stream()
+//                .filter( f -> f.getTitle().contains( title ) ).collect( Collectors.toList() );
 
+        return articlesByTitle;
     }
 
 

@@ -48,10 +48,10 @@ public class BBCNewsController {
     }
 
 
-    @PostMapping("/articles")
-    private void articles(){
-        pocketService.add(everything.articleList());
-    }
+//    @PostMapping("/articles")
+//    private void articles(){
+//        pocketService.add(everything.articleList());
+//    }
 //    @GetMapping("/articleByTitle")
 //    public List<Article> articleByTitle(String title){
 //        return everything.articleByTitle( title );
