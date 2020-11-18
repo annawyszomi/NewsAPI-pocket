@@ -1,12 +1,15 @@
 package anwyszomi.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @Entity
 public class User {
 
@@ -15,44 +18,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Length(min = 1, message = "Login cannot be empty")
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String login;
+    @Column(nullable = false)
+    private String password;
+    @Column(nullable = false, unique = true)
+    private String email;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
     private Set <Article> articles = new HashSet <>();
 
-    @OneToOne
-    private Pocket pocket;
-
-    public User(String login, Set <Article> articles) {
-        this.login = login;
-        this.articles = articles;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-
-    public Set <Article> getArticles() {
-        return articles;
-    }
-
-    public void setArticles(Set <Article> articles) {
-        this.articles = articles;
-    }
 
 
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head th:include="navi :: head"/>
+<body>
+<div th:include="navi :: menu"></div>
+<section>
+    <h3>Pocket</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Url</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="n:${pocketList}">
+            <td th:text="${n.title}"></td>
+            <td th:text="${n.url}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

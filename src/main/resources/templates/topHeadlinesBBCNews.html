@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head th:include="navi :: head"/>
+<body>
+<div th:include="navi :: menu"></div>
+<section>
+<h3>Top Headlines</h3>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Article</th>
+        <th scope="col">Add to pocket</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="n:${news}">
+        <td>
+        <a th:href="@{${n.url}}" th:text="${n.title}">
+            <i class="fa fa-info"></i></a>
+        </td>
+        <td>
+            <a th:href="@{/addToPocket?article={article}(article=${n.id})}"
+               role="button" class="btn btn-danger">
+                <i class="fa fa-info"></i>
+            </a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+</section>
+</body>
+</html>
