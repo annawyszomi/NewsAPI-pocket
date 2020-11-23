@@ -5,6 +5,7 @@ import anwyszomi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.xml.ws.ServiceMode;
@@ -16,6 +17,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     @Override
     public Optional<User> findById(Long id) {
         return userRepository.findById(id);
@@ -25,6 +29,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void add(User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 
@@ -48,7 +53,7 @@ public class UserServiceImpl implements UserService {
              existingUser.setLogin(user.getLogin());
          }
          if(user.getPassword()!=null){
-             existingUser.setPassword(user.getPassword());
+             existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
          }
          if(user.getGender()!=null){
              existingUser.setGender(user.getGender());
