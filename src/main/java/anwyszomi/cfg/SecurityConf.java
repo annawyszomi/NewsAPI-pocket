@@ -14,7 +14,7 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
     private PasswordEncoder passwordEncoder;
 
     public void configure(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.authorizeRequests().antMatchers("/mysql/**").permitAll().antMatchers("/")
+        httpSecurity.authorizeRequests().antMatchers("/login").permitAll().antMatchers("/login")
                 .hasRole("ADMIN").and().httpBasic().and().csrf().disable();
 
         httpSecurity.headers().frameOptions().disable();
