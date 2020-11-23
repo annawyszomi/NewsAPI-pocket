@@ -1,14 +1,14 @@
 package anwyszomi.domain;
 
-import lombok.Data;
+
 
 import javax.persistence.*;
 
-@Data
+
 @Entity
 public class Source {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private String id;
     private String name;
     @OneToOne
