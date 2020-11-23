@@ -55,4 +55,9 @@ public class UserController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+    @GetMapping("/search")
+    public ResponseEntity<?> findByCiteria(@RequestParam(name = "criteria",required = true)String criteria,
+                                           @RequestParam(name="searchItem")String searchItem){
+        return new ResponseEntity<List<User>>(userService.findByCriteria(criteria,searchItem),HttpStatus.OK);
+    }
 }

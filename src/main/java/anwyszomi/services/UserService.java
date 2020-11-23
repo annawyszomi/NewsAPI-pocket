@@ -13,4 +13,5 @@ public interface UserService {
     Page<User> findAll(Pageable pageable);
     Optional<User> update(User user);
     Optional<User> findById(Long id);
+   List<User> findByCriteria(String criteria, String searchItem);
 }

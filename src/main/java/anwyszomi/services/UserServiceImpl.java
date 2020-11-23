@@ -20,6 +20,20 @@ public class UserServiceImpl implements UserService {
     public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
+
+    @Override
+    public List<User> findByCriteria(String criteria, String searchItem) {
+      switch (criteria){
+          case "login":
+            return   userRepository.findByLogin(searchItem);
+          case"firstName":
+            return   userRepository.findByFirstName(searchItem);
+          case"lastName":
+              return userRepository.findByLastName(searchItem);
+      }
+      return null;
+    }
+
     public Page<User> findAll(Pageable pageable){
         return userRepository.findAll(pageable);
     }
