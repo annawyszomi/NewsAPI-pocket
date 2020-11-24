@@ -28,8 +28,17 @@ public class Source {
         this.article = article;
     }
 
+    public Source(String id, String name, Article article) {
+        this.id = id;
+        this.name = name;
+        this.article = article;
+    }
+
     public Source(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Source() {
     }
 }
