@@ -14,10 +14,12 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
     private PasswordEncoder passwordEncoder;
 
     public void configure(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.authorizeRequests().antMatchers("/login").permitAll().antMatchers("/login")
-                .hasRole("ADMIN").and().httpBasic().and().csrf().disable();
-
-        httpSecurity.headers().frameOptions().disable();
+//        httpSecurity.authorizeRequests().antMatchers("/login").permitAll().antMatchers("/login")
+//                .hasRole("ADMIN").and().httpBasic().and().csrf().disable();
+//
+//        httpSecurity.headers().frameOptions().disable();
+        httpSecurity.csrf().disable().formLogin().loginProcessingUrl("/login").and().httpBasic().and()
+                .authorizeRequests().antMatchers("/login").permitAll().anyRequest().authenticated();
     }
 
     @Autowired
