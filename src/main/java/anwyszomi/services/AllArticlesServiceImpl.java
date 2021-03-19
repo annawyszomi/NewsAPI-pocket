@@ -2,6 +2,9 @@ package anwyszomi.services;
 
 import anwyszomi.domain.Article;
 import anwyszomi.domain.Response;
+import anwyszomi.domain.Source;
+import anwyszomi.repositories.PocketRepository;
+import anwyszomi.repositories.SourceRepository;
 import anwyszomi.supplier.ApiResponder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,12 @@ public class AllArticlesServiceImpl implements AllArticlesService {
 
     @Autowired
     ApiResponder responder;
+
+    @Autowired
+    PocketRepository pocketRepository;
+
+    @Autowired
+    SourceRepository sourceRepository;
 
     @Override
     public Response findAll() {
@@ -35,7 +44,23 @@ public class AllArticlesServiceImpl implements AllArticlesService {
         return articlesByTitle;
     }
 
+    @Override
+    public void add(String title) {
+        Article article = responder.responseOfAllArticleInBBCNews().getArticles()
+                .stream()
+                .filter(t->t.getTitle().contains(title)).findAny().get();
+        Source source = article.getSource().getArticle().getSource();
 
+
+        sourceRepository.save(source);
+        pocketRepository.save(article);
+    }
+
+    @Override
+    public List<Article> articlesFromDb() {
+        List<Article> articles = pocketRepository.findAll();
+        return articles;
+    }
 
 
 //    public List<Article> articleByDate(String date){

@@ -10,7 +10,12 @@ import java.util.List;
 public interface AllArticlesService {
 
     Response findAll();
-    public List<Article> articleList();
-    public List<Article> articleByTitle(String title);
 
+    List<Article> articleList();
+
+    List<Article> articleByTitle(String title);
+
+    void add (String title);
+
+    List<Article> articlesFromDb();
 }
