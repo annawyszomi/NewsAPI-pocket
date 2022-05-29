@@ -22,9 +22,10 @@ Endpoints descriptions for news
 
 
 ## Technologies
-* Spring Boot 2.2+
+* Java
+* Spring Boot
 * MySQL
-* Spring data jpa for persistence
+* Spring Data JPA
 * Maven
 * Docker
 
